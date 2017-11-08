@@ -13,12 +13,11 @@ public class Etape2 implements IStep2Strategy {
     }
 
     @Override
-    public void onMachineRequest(MachineX applicant, MachineY executor) throws Exception {
-        this.lock.acquire();
-    }
+    public void onMachineRequest(MachineX applicant, MachineY executor) throws Exception {}
 
     @Override
     public void onMachineExecute(MachineX applicant, MachineY executor) throws Exception {
+        this.lock.acquire();
         executor.executeJob();
         this.lock.release();
     }
